@@ -28,11 +28,6 @@ class Programador  extends EventEmitter {
 
 		var _this = this;
 
-		
-
-		console.log(this)
-
-
 		this.arrayConfig.forEach( function(valor) {
 
     		// Crear planificación para todos los dias a las 18:00

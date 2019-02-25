@@ -42,7 +42,7 @@ class Termostato  extends EventEmitter {
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(() => {
 			
-			console.log(this);
+			
 			this.emit('tic', this.habitacion.temperatura);
 
 
