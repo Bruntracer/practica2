@@ -29,6 +29,8 @@ class Termostato  extends EventEmitter {
 
 		// para cancelar el temporizador setInterval:
 		this.intervalId = null;
+
+		
 	}
 
 	indicarTemperaturaIdeal(temperaturaIdeal) {
@@ -39,7 +41,10 @@ class Termostato  extends EventEmitter {
 		console.log('Encendiendo el termostato.');
 		clearInterval(this.intervalId);
 		this.intervalId = setInterval(() => {
+			
+			console.log(this);
 			this.emit('tic', this.habitacion.temperatura);
+
 
 			if (this.habitacion.temperatura > this.temperaturaIdeal+MARGEN_ERROR) {
 				this.emit('muchocalor');
@@ -47,6 +52,7 @@ class Termostato  extends EventEmitter {
 				this.emit('muchofrio');
 			}
 		}, 500);
+		
 	}
 
 	apagar() {
