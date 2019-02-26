@@ -18,11 +18,11 @@ const termostato = new Termostato(dormitorio);
 
 const arrayConfig = [
 
-	{hora:'14:21',temperatura:15},
-	{hora:'14:22',temperatura:30},
+	{hora:'12:14',temperatura:15},
+	{hora:'11:50',temperatura:30},
 	{hora:'12:30',temperatura:22},
 	{hora:'12:30',temperatura:22}
-]
+];
 
 const programador = new Programador(arrayConfig);
 

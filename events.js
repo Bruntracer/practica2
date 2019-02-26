@@ -1,36 +1,25 @@
 
 
-class EventEmitter {
-	
-	constructor() {
+class EventEmitter{
 
-		this.eventos = [];
-		this.funciones= [];
-
+	constructor(){
+		this.events = {};
 	}
 
-	on(nombre,funcion){
+	on(nameEvent, listener){
+		if(!this.events[nameEvent]){
+			this.events[nameEvent] = [];
+		}
 
-
-		this.eventos.push(nombre);
-		this.eventos.push(funcion)
-		/*this.eventos.push(nombre);
-		this.funciones.push(funcion)
-		//funcion(argumentos);
-		console.log(this.funciones);*/
-
-		console.log(this.eventos);
-
-		
-		
-
+		this.events[nameEvent].push(listener);
 	}
 
-	emit(nombre,argumento){
-
+	emit(nameEvent, args){
+		const event = this.events[nameEvent];
+		if (event){
+			event.forEach(cb => cb.call(null, args))
+		}
 	}
-
-	
 }
 
 exports = module.exports = EventEmitter;
